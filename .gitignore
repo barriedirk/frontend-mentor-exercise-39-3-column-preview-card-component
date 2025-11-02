@@ -1,4 +1,10 @@
 # Design files (please do not remove 🙂)
+*.sketch
+*.fig
+*.xd
+
+figma
+no_deploy
 
 # Dependencies
 /node_modules
