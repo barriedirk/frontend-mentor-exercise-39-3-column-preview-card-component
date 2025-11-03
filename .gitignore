@@ -26,8 +26,10 @@ npm-debug.log*
 
 # Production
 /dist
+/build
 /.next
 /out
+build
 
 # IDEs and editors
 /.idea
@@ -73,6 +75,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /coverage/
+/build/
 
 # Symbolication related
 app.*.symbols
