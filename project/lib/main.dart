@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import 'package:project/utils/app_constants.dart';
+
 import 'package:project/widgets/cards/sedans_card.dart';
 import 'package:project/widgets/cards/suvs_card.dart';
 import 'package:project/widgets/cards/luxury_card.dart';
@@ -16,7 +19,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: '3-column-preview',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        scaffoldBackgroundColor: const Color(0xFFF2F2F2),
+        useMaterial3: true,
       ),
       home: const HomePage(title: '3-column-preview Challenger'),
     );
@@ -31,9 +35,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    const double breakpoint = 921.0;
-
-    final bool useRowLayout = screenWidth >= breakpoint;
+    final bool useRowLayout = screenWidth >= AppConstants.cardBKPScreen;
 
     const List<Widget> cards = <Widget>[
       SedansCardWidget(),
@@ -42,13 +44,9 @@ class HomePage extends StatelessWidget {
     ];
 
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      //   title: Text(widget.title),
-      // ),
-      body: SingleChildScrollView(
-        scrollDirection: useRowLayout ? Axis.horizontal : Axis.vertical,
-        child: Center(
+      body: Center(
+        child: SingleChildScrollView(
+          scrollDirection: useRowLayout ? Axis.horizontal : Axis.vertical,
           child: useRowLayout
               ? Row(
                   mainAxisAlignment: MainAxisAlignment.center,
